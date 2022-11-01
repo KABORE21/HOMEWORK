@@ -1,0 +1,19 @@
+#include <stdio.h>
+
+int main(){
+    int sonuc = 0;
+    int toplam = 0;
+    int kareToplami = 0;
+    int toplamKaresi = 0;
+
+    for(int i = 1; i < 101; i++){
+    kareToplami += (i*i); toplam += i;
+    toplamKaresi = toplam * toplam;
+    sonuc = toplamKaresi - kareToplami;
+    }
+    
+    printf("%d\n", kareToplami);
+    printf("%d\n" ,toplamKaresi);
+    printf("%d",sonuc);
+}
+
