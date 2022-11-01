@@ -1,0 +1,49 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+
+void quick_sort(int random_array[100000], int first, int last){
+    int i, j, pivot, temp;
+    if(first < last){
+        pivot = first;
+        i = first;
+        j = last;
+        
+        while(i < j){
+            while(random_array[i] <= random_array[pivot] && i < last){
+                i++;
+            }
+            while(random_array[j] > random_array[pivot]){
+                j--;
+            }
+            if(i < j){
+                temp = random_array[i];
+                random_array[i] = random_array[j];
+                random_array[j] = temp;
+            }
+        }
+        
+        temp = random_array[pivot];
+        random_array[pivot] = random_array[j];
+        random_array[j] = temp;
+        quick_sort(random_array, first, j-1);
+        quick_sort(random_array, j+1, last);
+    }
+}
+    
+int main(){
+ int size = 100000, a;
+ int random_array[size], i;
+ int j = 100000;
+ 
+ for(i = 0; i < size; i++){
+     random_array[i] = rand() % 10000;
+ }
+ 
+quick_sort(random_array, 0, j-1);
+
+for(i = 0; i < j; i++){
+    printf("%d ", random_array[i]);
+ }
+ 
+}
