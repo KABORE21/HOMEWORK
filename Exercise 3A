@@ -1,0 +1,37 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+
+void selection_sort(int array[], int x){
+
+    int minimum;
+    int i, j, a;
+    
+    for (i = 0; i < x; i++){
+        minimum = i;
+        for(j = i; j < x; j++){
+            if(array[j] > array[minimum]){
+                minimum = j;
+            }
+        }
+        int temp = array[i];
+        array[i] = array[minimum];
+        array[minimum] = temp;
+    }
+    
+}
+    
+int main(){
+ int size = 100000, a;
+ int random_array[size], i, j;
+ 
+ for(i = 0; i < size; i++){
+     random_array[i] = rand() % 10000;
+ }
+ 
+selection_sort(random_array, size);
+for(a = 0; a < size; a++){
+    printf("%d ", random_array[a]);
+ }
+ 
+}
