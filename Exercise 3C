@@ -1,0 +1,37 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+
+void swap(int *xp, int *yp){
+    int temp = *xp;
+    *xp = *yp;
+    *yp = temp;
+}
+
+void bubble_sort(int random_array[], int size){
+    int i, j;
+    for(i = 0; i < size - 1; i++){
+        for(j = 0; j < size - i - 1; j++){
+            if(random_array[j] > random_array[j + 1]){
+                swap(&random_array[j], &random_array[j+1]);
+            }
+        }
+    }
+}
+    
+int main(){
+ int size = 100000, a;
+ int random_array[size], i;
+ int j = 100000;
+ 
+ for(i = 0; i < size; i++){
+     random_array[i] = rand() % 10000;
+ }
+ 
+bubble_sort(random_array, size);
+
+for(i = 0; i < j; i++){
+    printf("%d ", random_array[i]);
+ }
+ 
+}
