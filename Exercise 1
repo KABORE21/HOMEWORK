@@ -1,0 +1,43 @@
+#include <math.h>
+#include <stdio.h>
+#include <stdlib.h>
+
+
+void insertionSort(int random_array[], int size)
+{
+    int i, key, j;
+    for (i = 1; i < size; i++) {
+        key = random_array[i];
+        j = i - 1;
+        
+        while (j >= 0 && random_array[j] > key) {
+            random_array[j + 1] = random_array[j];
+            j = j - 1;
+        }
+        random_array[j + 1] = key;
+    }
+}
+
+
+// main method
+int main()
+{
+    int size = 100000;
+    int random_array[size], i;
+    int j = 100000;
+    
+    //generating random numbers
+    for(i = 0; i < size; i++){
+        random_array[i] = rand() % 10000;
+    }
+    
+    //calling a method
+     insertionSort(random_array, size);
+    
+    //displaying result
+       for(i = 0; i < j; i++){
+      printf(" %d", random_array[i]);
+    }
+    
+    return 0;
+}
